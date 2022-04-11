@@ -9,8 +9,10 @@ public class UpdateText : MonoBehaviour
 
     [SerializeField] private RectTransform bakgrund;
 
+    [SerializeField] private pagod myPagod;
+
     // Start is called before the first frame update
-    private void Start()
+    private void Awake()
     {
         myText = gameObject.GetComponent<TextMeshProUGUI>();
     }
@@ -18,6 +20,17 @@ public class UpdateText : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+    }
+
+    public void AddChar()
+    {
+        char temp = myPagod.GetLetter();
+        if (temp != (char)0)
+        {
+            myText.text += temp;
+        }
+        myPagod.indexAvDelEtt = -1;
+        myPagod.indexAvDelTvå = -1;
     }
 
     public void TextUpdated(string input)

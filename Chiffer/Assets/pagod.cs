@@ -5,6 +5,7 @@ using UnityEngine;
 public class pagod : MonoBehaviour
 {
     public int indexAvDelEtt = -1;
+    public int indexAvDelTvå = -1;
 
     // Start is called before the first frame update
     private void Start()
@@ -16,41 +17,53 @@ public class pagod : MonoBehaviour
     {
     }
 
-    public void SetIndex(int indexDeltEtt)
+    public void SetIndexEtt(int indexDeltEtt)
     {
         indexAvDelEtt = indexDeltEtt;
     }
 
-    public char GetLetter(int indexDelTvå)
+    public void SetIndexTvå(int indexDelTvå)
     {
+        indexAvDelTvå = indexDelTvå;
+    }
+
+    public char GetLetter()
+    {
+        if (indexAvDelTvå < 0 || indexAvDelEtt < 0)
+        {
+            Debug.LogError(("Kunde inte skriva bokstav då: indexAvDelEtt = {0}, indexAvDelTvå = {1}", indexAvDelEtt, indexAvDelTvå));
+            return (char)0;
+        }
+        indexAvDelTvå *= (indexAvDelEtt + 1);
+        indexAvDelTvå += 65;
         if (indexAvDelEtt == 0)
         {
-            return (char)indexDelTvå;
+            return (char)indexAvDelTvå;
         }
         else if (indexAvDelEtt == 1)
         {
-            if (indexDelTvå < 81)
+            if (indexAvDelTvå < 81)
             {
-                return (char)indexDelTvå;
+                return (char)indexAvDelTvå;
             }
             else
             {
-                return (char)(indexDelTvå + 1);
+                return (char)(indexAvDelTvå + 1);
             }
         }
         else if (indexAvDelEtt == 2)
         {
-            if (indexDelTvå < 86)
+            if (indexAvDelTvå < 86)
             {
-                return (char)(indexDelTvå + 1);
+                return (char)(indexAvDelTvå + 1);
             }
-            else if (indexDelTvå > 88)
+            else if (indexAvDelTvå > 88)
             {
-                if (indexDelTvå == 89)
+                if (indexAvDelTvå == 89)
                 {
                     return 'Å';
                 }
-                else if (indexDelTvå == 90)
+                else if (indexAvDelTvå == 90)
                 {
                     return 'Ä';
                 }
@@ -61,7 +74,7 @@ public class pagod : MonoBehaviour
             }
             else
             {
-                return (char)(indexDelTvå + 2);
+                return (char)(indexAvDelTvå + 2);
             }
         }
         return (char)0;
