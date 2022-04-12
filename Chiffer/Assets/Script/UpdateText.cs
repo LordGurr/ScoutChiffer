@@ -22,9 +22,21 @@ public class UpdateText : MonoBehaviour
     {
     }
 
-    public void AddChar()
+    public void AddCharPagod()
     {
-        char temp = myPagod.GetLetter();
+        char temp = myPagod.GetLetterPagod();
+        if (temp != (char)0)
+        {
+            myText.text += temp;
+            StartCoroutine(UppdateraNästaFrame());
+        }
+        myPagod.indexAvDelEtt = -1;
+        myPagod.indexAvDelTvå = -1;
+    }
+
+    public void AddCharScout()
+    {
+        char temp = myPagod.GetLetterScout();
         if (temp != (char)0)
         {
             myText.text += temp;

@@ -27,7 +27,7 @@ public class pagod : MonoBehaviour
         indexAvDelTvå = indexDelTvå;
     }
 
-    public char GetLetter()
+    public char GetLetterPagod()
     {
         if (indexAvDelTvå < 0 || indexAvDelEtt < 0)
         {
@@ -78,5 +78,43 @@ public class pagod : MonoBehaviour
             }
         }
         return (char)0;
+    }
+
+    public char GetLetterScout()
+    {
+        if (indexAvDelTvå < 0 || indexAvDelEtt < 0)
+        {
+            Debug.LogError(("Kunde inte skriva bokstav då: indexAvDelEtt = {0}, indexAvDelTvå = {1}", indexAvDelEtt, indexAvDelTvå));
+            return (char)0;
+        }
+        int temp = (indexAvDelTvå * 5 + indexAvDelEtt + 65);
+        //if (temp > 88)
+        //{
+        //    return (char)(temp + 3);
+        //}
+        if (temp > 86)
+        {
+            if (temp == 87)
+            {
+                return 'Å';
+            }
+            if (temp == 88)
+            {
+                return 'Ä';
+            }
+            else
+            {
+                return 'Ö';
+            }
+        }
+        if (temp > 85)
+        {
+            return (char)(temp + 3);
+        }
+        if (temp > 80)
+        {
+            return (char)(temp + 1);
+        }
+        return (char)temp;
     }
 }
