@@ -5,11 +5,8 @@ using UnityEngine.Events;
 
 public class Menu : MonoBehaviour
 {
-    private GameObject prevMenu = null;
-
-    public GameObject PrevMenu { set => prevMenu = value; }
+    public GameObject PrevMenu;
     [SerializeField] public UnityEvent onLoad;
-    [HideInInspector] public bool displayingImage = false;
 
     public void StepForward(GameObject nextMenu)
     {
@@ -23,16 +20,24 @@ public class Menu : MonoBehaviour
     {
         nextMenu.SetActive(true);
         nextMenu.GetComponent<Menu>().onLoad.Invoke();
-        nextMenu.GetComponent<Menu>().PrevMenu = prevMenu;
+        nextMenu.GetComponent<Menu>().PrevMenu = PrevMenu;
+        gameObject.SetActive(false);
+    }
+
+    public void StepForwardButDontSetBack(GameObject nextMenu)
+    {
+        nextMenu.SetActive(true);
+        nextMenu.GetComponent<Menu>().onLoad.Invoke();
+        //nextMenu.GetComponent<Menu>().PrevMenu;
         gameObject.SetActive(false);
     }
 
     public void StepBack()
     {
-        if (prevMenu != null)
+        if (PrevMenu != null)
         {
-            prevMenu.SetActive(true);
-            prevMenu.GetComponent<Menu>().onLoad.Invoke();
+            PrevMenu.SetActive(true);
+            PrevMenu.GetComponent<Menu>().onLoad.Invoke();
             gameObject.SetActive(false);
         }
     }
@@ -50,7 +55,7 @@ public class Menu : MonoBehaviour
         if (Input.GetButtonDown("Cancel"))
         {
             Debug.Log("Cancelled pressed");
-            if (prevMenu != null && !displayingImage)
+            if (PrevMenu != null)
             {
                 StepBack();
             }
