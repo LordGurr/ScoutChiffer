@@ -34,8 +34,8 @@ public class pagod : MonoBehaviour
             Debug.LogError(("Kunde inte skriva bokstav då: indexAvDelEtt = {0}, indexAvDelTvå = {1}", indexAvDelEtt, indexAvDelTvå));
             return (char)0;
         }
-        indexAvDelTvå *= (indexAvDelEtt + 1);
-        indexAvDelTvå += 65;
+        //indexAvDelTvå *= (indexAvDelEtt + 1);
+        indexAvDelTvå += 65 + (indexAvDelEtt * 9);
         if (indexAvDelEtt == 0)
         {
             return (char)indexAvDelTvå;

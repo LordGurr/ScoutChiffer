@@ -33,6 +33,16 @@ public class UpdateText : MonoBehaviour
         myPagod.indexAvDelTvå = -1;
     }
 
+    public void AddSpace()
+    {
+        myText.text += ' ';
+    }
+
+    public void AddBackspace()
+    {
+        myText.text = myText.text.Remove(myText.text.Length - 1);
+    }
+
     public void TextUpdated(string input)
     {
         myText.text = input;
