@@ -28,6 +28,7 @@ public class UpdateText : MonoBehaviour
         if (temp != (char)0)
         {
             myText.text += temp;
+            StartCoroutine(UppdateraNästaFrame());
         }
         myPagod.indexAvDelEtt = -1;
         myPagod.indexAvDelTvå = -1;
@@ -36,11 +37,13 @@ public class UpdateText : MonoBehaviour
     public void AddSpace()
     {
         myText.text += ' ';
+        StartCoroutine(UppdateraNästaFrame());
     }
 
     public void AddBackspace()
     {
         myText.text = myText.text.Remove(myText.text.Length - 1);
+        StartCoroutine(UppdateraNästaFrame());
     }
 
     public void TextUpdated(string input)
