@@ -8,6 +8,8 @@ public class SetTextToSlider : MonoBehaviour
 {
     private TextMeshProUGUI myText;
     [SerializeField] private Förskjutning myFörskjutning;
+    [SerializeField] private UpdateText myUpdateText;
+    [SerializeField] private TMP_InputField myInputText;
 
     // Start is called before the first frame update
     private void Start()
@@ -24,5 +26,6 @@ public class SetTextToSlider : MonoBehaviour
     {
         myText.text = Convert.ToString((int)input);
         myFörskjutning.indexAvDelEtt = (int)input;
+        myUpdateText.TextUpdated(myInputText.text);
     }
 }

@@ -3784,6 +3784,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "myF\xF6rskjutning": {fileID: 1641443422}
+  myUpdateText: {fileID: 1176791854}
+  myInputText: {fileID: 1681709262}
 --- !u!114 &719474932
 MonoBehaviour:
   m_ObjectHideFlags: 0
