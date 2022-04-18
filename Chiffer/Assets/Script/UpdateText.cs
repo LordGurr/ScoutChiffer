@@ -11,15 +11,12 @@ public class UpdateText : MonoBehaviour
 
     [SerializeField] private pagod myPagod;
 
+    [SerializeField] private Förskjutning myFörskjutning;
+
     // Start is called before the first frame update
     private void Awake()
     {
         myText = gameObject.GetComponent<TextMeshProUGUI>();
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
     }
 
     public void AddCharPagod()
@@ -60,7 +57,14 @@ public class UpdateText : MonoBehaviour
 
     public void TextUpdated(string input)
     {
-        myText.text = input;
+        if (myFörskjutning != null)
+        {
+            myText.text = myFörskjutning.UpdateFörskjut(input);
+        }
+        else
+        {
+            myText.text = input;
+        }
         StartCoroutine(UppdateraNästaFrame());
     }
 
