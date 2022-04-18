@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class Förskjutning : MonoBehaviour
 {
@@ -38,21 +39,53 @@ public class Förskjutning : MonoBehaviour
     public char GetLetterFörskjut(char letter)
     {
         letter = Char.ToLower(letter);
-        int index = (int)letter - 52;
-        if (letter == 'å')
+        int index = (int)letter - 97;
+        int temp;
+        if (!Char.IsLetter(letter))
         {
-            index = 26;
+            return letter;
         }
-        else if (letter == 'ä')
+        if (AnyEqual(letter, 'å', 'ä', 'ö'))
         {
-            index = 27;
+            if (letter == 'å')
+            {
+                index = 26;
+            }
+            else if (letter == 'ä')
+            {
+                index = 27;
+            }
+            else if (letter == 'ö')
+            {
+                index = 28;
+            }
+            //temp = ((index + indexAvDelEtt + 29) % 29);
+            //if(temp == 0)
         }
-        else if (letter == 'ö')
+        temp = (index + indexAvDelEtt + 29) % 29 + 97;
+        if (temp > 122)
         {
-            index = 28;
+            if (temp == 123)
+            {
+                return 'å';
+            }
+            if (temp == 124)
+            {
+                return 'ä';
+            }
+            if (temp == 125)
+            {
+                return 'ö';
+            }
         }
-
-        return (char)((index + indexAvDelEtt + 29) % 29 + 52);
+        return (char)(temp);
         //indexAvDelTvå *= (indexAvDelEtt + 1);
+    }
+
+    public static bool AnyEqual<T>(params T[] values)
+    {
+        if (values == null || values.Length == 0)
+            return true;
+        return values.Any(v => v.Equals(values[0]));
     }
 }
