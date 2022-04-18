@@ -28,4 +28,9 @@ public class SetTextToSlider : MonoBehaviour
         myFörskjutning.indexAvDelEtt = (int)input;
         myUpdateText.TextUpdated(myInputText.text);
     }
+
+    public void UpdateText()
+    {
+        myUpdateText.TextUpdated(myInputText.text);
+    }
 }

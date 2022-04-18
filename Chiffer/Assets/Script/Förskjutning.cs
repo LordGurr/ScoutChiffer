@@ -8,6 +8,10 @@ using System.Linq;
 public class Förskjutning : MonoBehaviour
 {
     public int indexAvDelEtt;
+
+    [SerializeField] private TMP_Dropdown myDropdown;
+
+    [SerializeField] private TextMeshProUGUI sliderValue;
     //  [SerializeField]  private TextMeshProUGUI myText;
     //[SerializeField]    private TextMeshProUGUI myTranslatedText;
 
@@ -28,12 +32,52 @@ public class Förskjutning : MonoBehaviour
         //{
         //    myTranslatedText.text += GetLetterFörskjut(myTranslatedText.text[i]);
         //}
+        indexAvDelEtt = Convert.ToInt32(sliderValue.text);
         string temp = string.Empty;
         for (int i = 0; i < input.Length; i++)
         {
+            if (myDropdown.value != 0)
+            {
+                if (myDropdown.value == 1)
+                {
+                    indexAvDelEtt = (int)Math.Pow(2, i + 1) / 2;
+                }
+                else if (myDropdown.value == 2)
+                {
+                    indexAvDelEtt = -(int)Math.Pow(2, i + 1) / 2;
+                }
+                else if (myDropdown.value == 3)
+                {
+                    indexAvDelEtt = Fib(i + 1);
+                }
+                else if (myDropdown.value == 4)
+                {
+                    indexAvDelEtt = -Fib(i + 1);
+                }
+                else if (myDropdown.value == 5)
+                {
+                    indexAvDelEtt = (i + 1) * (i + 1);
+                }
+                else if (myDropdown.value == 6)
+                {
+                    indexAvDelEtt = -(i + 1) * (i + 1);
+                }
+            }
             temp += GetLetterFörskjut(input[i]);
         }
         return temp;
+    }
+
+    public static int Fib(int n)
+    {
+        if (n <= 1)
+        {
+            return n;
+        }
+        else
+        {
+            return Fib(n - 1) + Fib(n - 2);
+        }
     }
 
     public char GetLetterFörskjut(char letter)
@@ -63,6 +107,15 @@ public class Förskjutning : MonoBehaviour
             //if(temp == 0)
         }
         temp = (index + indexAvDelEtt + 29) % 29 + 97;
+        if (temp < 97)
+        {
+            temp -= 97;
+            while (temp < 0)
+            {
+                temp += 29;
+            }
+            temp = temp % 29 + 97;
+        }
         if (temp > 122)
         {
             if (temp == 123)
