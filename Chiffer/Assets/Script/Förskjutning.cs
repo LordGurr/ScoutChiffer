@@ -34,33 +34,38 @@ public class Förskjutning : MonoBehaviour
         //}
         indexAvDelEtt = Convert.ToInt32(sliderValue.text);
         string temp = string.Empty;
+        int reset = 0;
         for (int i = 0; i < input.Length; i++)
         {
             if (myDropdown.value != 0)
             {
-                if (myDropdown.value == 1)
+                if (input[i] == ' ')
                 {
-                    indexAvDelEtt = (int)Math.Pow(2, i + 1) / 2;
+                    reset = i + 1;
+                }
+                else if (myDropdown.value == 1)
+                {
+                    indexAvDelEtt = (int)Math.Pow(2, i + 1 - reset) / 2;
                 }
                 else if (myDropdown.value == 2)
                 {
-                    indexAvDelEtt = -(int)Math.Pow(2, i + 1) / 2;
+                    indexAvDelEtt = -(int)Math.Pow(2, i + 1 - reset) / 2;
                 }
                 else if (myDropdown.value == 3)
                 {
-                    indexAvDelEtt = Fib(i + 1);
+                    indexAvDelEtt = Fib(i + 1 - reset);
                 }
                 else if (myDropdown.value == 4)
                 {
-                    indexAvDelEtt = -Fib(i + 1);
+                    indexAvDelEtt = -Fib(i + 1 - reset);
                 }
                 else if (myDropdown.value == 5)
                 {
-                    indexAvDelEtt = (i + 1) * (i + 1);
+                    indexAvDelEtt = (i + 1 - reset) * (i + 1 - reset);
                 }
                 else if (myDropdown.value == 6)
                 {
-                    indexAvDelEtt = -(i + 1) * (i + 1);
+                    indexAvDelEtt = -(i + 1 - reset) * (i + 1 - reset);
                 }
             }
             temp += GetLetterFörskjut(input[i]);

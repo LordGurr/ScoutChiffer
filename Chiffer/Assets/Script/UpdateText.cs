@@ -13,10 +13,17 @@ public class UpdateText : MonoBehaviour
 
     [SerializeField] private Förskjutning myFörskjutning;
 
+    [SerializeField] private TMP_FontAsset[] myFonts;
+
+    private int currentFont = 0;
+
+    private string inputText = string.Empty;
+
     // Start is called before the first frame update
     private void Awake()
     {
         myText = gameObject.GetComponent<TextMeshProUGUI>();
+        inputText = myText.text;
     }
 
     public void AddCharPagod()
@@ -57,6 +64,25 @@ public class UpdateText : MonoBehaviour
 
     public void TextUpdated(string input)
     {
+        inputText = input;
+        if (currentFont == 2)
+        {
+            int index = 1;
+            input = input.ToLower();
+            while (index > 0)
+            {
+                index = input.IndexOf(' ');
+                if (index > 0)
+                {
+                    input = input.Substring(0, index - 1) + input[index - 1].ToString().ToUpper() + "|" + input.Substring(index + 1);
+                }
+            }
+            myText.text = input;
+        }
+        else if (currentFont == 3)
+        {
+            myText.text = myText.text.ToLower();
+        }
         if (myFörskjutning != null)
         {
             myText.text = myFörskjutning.UpdateFörskjut(input);
@@ -72,5 +98,16 @@ public class UpdateText : MonoBehaviour
     {
         yield return null;
         bakgrund.sizeDelta = gameObject.GetComponent<RectTransform>().sizeDelta;
+    }
+
+    public void FontUpdated(int index)
+    {
+        myText.font = myFonts[index];
+        currentFont = index;
+        //if(currentFont == 2)
+        //{
+        //    myText.characterSpacing = -15;
+        //}
+        TextUpdated(inputText);
     }
 }
