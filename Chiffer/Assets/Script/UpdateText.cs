@@ -97,17 +97,36 @@ public class UpdateText : MonoBehaviour
     private IEnumerator UppdateraNästaFrame()
     {
         yield return null;
-        bakgrund.sizeDelta = gameObject.GetComponent<RectTransform>().sizeDelta;
+        if (currentFont == 3)
+        {
+            bakgrund.sizeDelta = new Vector2(gameObject.GetComponent<RectTransform>().sizeDelta.x, gameObject.GetComponent<RectTransform>().sizeDelta.y - 60);
+        }
+        else
+        {
+            bakgrund.sizeDelta = gameObject.GetComponent<RectTransform>().sizeDelta;
+        }
     }
 
     public void FontUpdated(int index)
     {
         myText.font = myFonts[index];
         currentFont = index;
-        //if(currentFont == 2)
-        //{
-        //    myText.characterSpacing = -15;
-        //}
+        if (currentFont == 2 || currentFont == 3 || currentFont == 0)
+        {
+            myText.fontStyle = FontStyles.Bold;
+        }
+        else
+        {
+            myText.fontStyle = FontStyles.Normal;
+        }
+        if (currentFont == 3)
+        {
+            myText.fontSize = 100;
+        }
+        else
+        {
+            myText.fontSize = 80;
+        }
         TextUpdated(inputText);
     }
 }
