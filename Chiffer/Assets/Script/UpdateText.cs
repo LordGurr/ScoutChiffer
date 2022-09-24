@@ -19,11 +19,14 @@ public class UpdateText : MonoBehaviour
 
     private string inputText = string.Empty;
 
+    private RectTransform rect;
+
     // Start is called before the first frame update
     private void Awake()
     {
         myText = gameObject.GetComponent<TextMeshProUGUI>();
         inputText = myText.text;
+        rect = gameObject.GetComponent<RectTransform>();
     }
 
     public void AddCharPagod()
@@ -65,6 +68,7 @@ public class UpdateText : MonoBehaviour
     public void TextUpdated(string input)
     {
         inputText = input;
+
         if (currentFont == 2)
         {
             int index = 1;
@@ -83,13 +87,21 @@ public class UpdateText : MonoBehaviour
         {
             myText.text = myText.text.ToLower();
         }
-        if (myFörskjutning != null)
+        if (myFörskjutning != null && currentFont != 0)
         {
             myText.text = myFörskjutning.UpdateFörskjut(input);
         }
         else
         {
             myText.text = input;
+        }
+        if (currentFont == 2)
+        {
+            rect.sizeDelta = new Vector2(rect.sizeDelta.x, myText.preferredHeight + 50);
+        }
+        else
+        {
+            rect.sizeDelta = new Vector2(rect.sizeDelta.x, myText.preferredHeight);
         }
         StartCoroutine(UppdateraNästaFrame());
     }

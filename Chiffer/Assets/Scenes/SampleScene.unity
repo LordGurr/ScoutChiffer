@@ -186,12 +186,12 @@ GameObject:
   - component: {fileID: 53895387}
   - component: {fileID: 53895388}
   m_Layer: 5
-  m_Name: Text till Chiffer
+  m_Name: Chiffer till Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &53895387
 RectTransform:
   m_ObjectHideFlags: 0
@@ -235,7 +235,19 @@ MonoBehaviour:
   PrevMenu: {fileID: 0}
   onLoad:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 560443326}
+        m_TargetAssemblyTypeName: ChifferTillText, Assembly-CSharp
+        m_MethodName: UpdateOnLoad
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &55606818
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,13 +331,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 53895388}
+      - m_Target: {fileID: 743919152}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: StepBack
-        m_Mode: 1
+        m_MethodName: StepForward
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1434082730}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4613,7 +4625,7 @@ GameObject:
   - component: {fileID: 512805762}
   - component: {fileID: 512805761}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: previousWord
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4636,7 +4648,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 400}
-  m_SizeDelta: {x: 980, y: 0}
+  m_SizeDelta: {x: 980, y: 89.38}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &512805760
 MonoBehaviour:
@@ -4691,7 +4703,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -5228,6 +5240,7 @@ GameObject:
   - component: {fileID: 560443325}
   - component: {fileID: 560443324}
   - component: {fileID: 560443323}
+  - component: {fileID: 560443326}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5323,6 +5336,26 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &560443326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560443321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 087d87a77f3039a4eb1e3cf298dad895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ordListor:
+  - {fileID: 4900000, guid: 5e84b26d39784264cb15d9d841641162, type: 3}
+  - {fileID: 4900000, guid: 8d3a41f6aa4efff4d80cf081e66ff14f, type: 3}
+  - {fileID: 4900000, guid: 007afe82332e88246a4d003d165b837e, type: 3}
+  - {fileID: 4900000, guid: e2e244f1c2f20d34687086b60bf6d44c, type: 3}
+  inputField: {fileID: 1480901161}
+  previousWord: {fileID: 512805762}
+  currentWord: {fileID: 939940597}
 --- !u!1 &580275442
 GameObject:
   m_ObjectHideFlags: 0
@@ -5424,7 +5457,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 512805762}
+      - m_Target: {fileID: 939940597}
         m_TargetAssemblyTypeName: UpdateText, Assembly-CSharp
         m_MethodName: FontUpdated
         m_Mode: 0
@@ -6057,9 +6090,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 53895388}
-        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: StepBack
+      - m_Target: {fileID: 560443326}
+        m_TargetAssemblyTypeName: ChifferTillText, Assembly-CSharp
+        m_MethodName: CheckWord
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6583,7 +6616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &743919151
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8852,9 +8885,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UpdateText, Assembly-CSharp
-        m_MethodName: FontUpdated
+      - m_Target: {fileID: 560443326}
+        m_TargetAssemblyTypeName: ChifferTillText, Assembly-CSharp
+        m_MethodName: SetWordList
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8917,7 +8950,7 @@ GameObject:
   - component: {fileID: 939940597}
   - component: {fileID: 939940596}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: currentWord
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8940,7 +8973,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 1600}
-  m_SizeDelta: {x: 980, y: 0}
+  m_SizeDelta: {x: 980, y: 180.59}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &939940596
 MonoBehaviour:
@@ -8955,7 +8988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
-  m_VerticalFit: 2
+  m_VerticalFit: 0
 --- !u!114 &939940597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8998,8 +9031,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: penis fabrik
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1d3710b28ccd8874d8d0d401595631ff, type: 2}
+  m_sharedMaterial: {fileID: 9032044339973841042, guid: 1d3710b28ccd8874d8d0d401595631ff, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9031,9 +9064,9 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -22
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -15119,7 +15152,7 @@ MonoBehaviour:
         m_MethodName: StepForward
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 53895386}
+          m_ObjectArgument: {fileID: 1630628072}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -15630,9 +15663,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 512805762}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UpdateText, Assembly-CSharp
-        m_MethodName: TextUpdated
+        m_MethodName: 
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16799,7 +16832,7 @@ GameObject:
   - component: {fileID: 1630628073}
   - component: {fileID: 1630628074}
   m_Layer: 5
-  m_Name: Chiffer till Text
+  m_Name: Text till Chiffer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21218,7 +21251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
-  m_VerticalFit: 2
+  m_VerticalFit: 0
 --- !u!114 &1969367214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21274,7 +21307,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: -22
   m_wordSpacing: 0
@@ -22919,7 +22952,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 495.8}
-  m_SizeDelta: {x: 980, y: 0}
+  m_SizeDelta: {x: 980, y: 89.38}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2038606730
 MonoBehaviour:
