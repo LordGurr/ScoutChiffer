@@ -68,8 +68,7 @@ public class UpdateText : MonoBehaviour
     public void TextUpdated(string input)
     {
         inputText = input;
-
-        if (currentFont == 2)
+        if (currentFont == 2 && input.Length > 0)
         {
             int index = 1;
             input = input.ToLower();
@@ -81,6 +80,7 @@ public class UpdateText : MonoBehaviour
                     input = input.Substring(0, index - 1) + input[index - 1].ToString().ToUpper() + "|" + input.Substring(index + 1);
                 }
             }
+            input = input.Substring(0, input.Length - 1) + input[input.Length - 1].ToString().ToUpper();
             myText.text = input;
         }
         else if (currentFont == 3)
