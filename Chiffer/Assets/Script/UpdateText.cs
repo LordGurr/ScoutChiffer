@@ -21,6 +21,64 @@ public class UpdateText : MonoBehaviour
 
     private RectTransform rect;
 
+    private char[] beorhtricRunes = new char[]
+    {
+        'ᚪ',//a
+        'ᛒ',//b
+        'ᚳ',//c
+        'ᛞ',//d
+        'ᛖ',//e
+        'ᚠ',//f
+        'ᚸ',//g
+        'ᚻ',//h
+        'ᛁ',//i
+        'ᛄ',//j
+        'ᛸ',//k
+        'ᛚ',//l
+        'ᛗ',//m
+        'ᚾ',//n
+        'ᚩ',//o
+        'ᚹ',//p
+        'ᚱ',//r
+        'ᛋ',//s
+        'ᛏ',//t
+        'ᚢ',//u
+        'ᛢ',//v
+        'ᚣ',//y
+        'ᛠ',//å
+        'ᚫ',//ä
+        'ᛟ',//ö
+    };
+
+    private char[] beorhtricAlphabet = new char[]
+    {
+        'a',//a
+        'b',//b
+        'c',//c
+        'd',//d
+        'e',//e
+        'f',//f
+        'g',//g
+        'h',//h
+        'i',//i
+        'j',//j
+        'k',//k
+        'l',//l
+        'm',//m
+        'n',//n
+        'o',//o
+        'p',//p
+        'r',//r
+        's',//s
+        't',//t
+        'u',//u
+        'v',//v
+        'y',//y
+        'å',//å
+        'ä',//ä
+        'ö',//ö
+    };
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -91,6 +149,15 @@ public class UpdateText : MonoBehaviour
         {
             myText.text = myFörskjutning.UpdateFörskjut(input);
         }
+        if (currentFont == 4)
+        {
+            string temp = input.ToLower();
+            for (int i = 0; i < beorhtricAlphabet.Length; i++)
+            {
+                temp = temp.Replace(beorhtricAlphabet[i], beorhtricRunes[i]);
+            }
+            myText.text = temp;
+        }
         else
         {
             myText.text = input;
@@ -138,6 +205,14 @@ public class UpdateText : MonoBehaviour
         else
         {
             myText.fontSize = 80;
+        }
+        if(currentFont == 4)
+        {
+            myText.characterSpacing =0;
+        }
+        else
+        {
+            myText.characterSpacing = -22;
         }
         TextUpdated(inputText);
     }

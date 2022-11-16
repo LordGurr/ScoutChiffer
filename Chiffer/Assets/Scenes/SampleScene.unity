@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 55606821}
   - component: {fileID: 55606820}
   m_Layer: 5
-  m_Name: Back
+  m_Name: "Inst\xE4llningar"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6824,6 +6824,8 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Braille
       m_Image: {fileID: 0}
+    - m_Text: Runes
+      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -10876,6 +10878,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 241e8354197ba524bad544b7ed89a004, type: 2}
   - {fileID: 11400000, guid: 7e98a8c2051aa1c43a7f9fc60a68412b, type: 2}
   - {fileID: 11400000, guid: 19d6c0d5abc84474c9f65c5d275b62e3, type: 2}
+  - {fileID: 11400000, guid: 511c31dd338d929438249eacf74c1533, type: 2}
 --- !u!114 &939940598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23551,6 +23554,8 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Braille
       m_Image: {fileID: 0}
+    - m_Text: Runes
+      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -25361,6 +25366,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 241e8354197ba524bad544b7ed89a004, type: 2}
   - {fileID: 11400000, guid: 7e98a8c2051aa1c43a7f9fc60a68412b, type: 2}
   - {fileID: 11400000, guid: 19d6c0d5abc84474c9f65c5d275b62e3, type: 2}
+  - {fileID: 11400000, guid: 511c31dd338d929438249eacf74c1533, type: 2}
 --- !u!114 &1969367213
 MonoBehaviour:
   m_ObjectHideFlags: 0
