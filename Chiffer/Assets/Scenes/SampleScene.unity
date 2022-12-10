@@ -6722,7 +6722,9 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 5e84b26d39784264cb15d9d841641162, type: 3}
   - {fileID: 4900000, guid: 8d3a41f6aa4efff4d80cf081e66ff14f, type: 3}
   - {fileID: 4900000, guid: 007afe82332e88246a4d003d165b837e, type: 3}
+  - {fileID: 4900000, guid: 9337d9c7bb1fcf14094db1246c7a4e6e, type: 3}
   - {fileID: 4900000, guid: e2e244f1c2f20d34687086b60bf6d44c, type: 3}
+  - {fileID: 4900000, guid: 008c476f9c2666a4dbc066a18fb5b3de, type: 3}
   inputField: {fileID: 1480901161}
   previousWord: {fileID: 512805762}
   currentWord: {fileID: 939940597}
@@ -10663,7 +10665,11 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Engelska
       m_Image: {fileID: 0}
+    - m_Text: Ogham
+      m_Image: {fileID: 0}
     - m_Text: Korta ord
+      m_Image: {fileID: 0}
+    - m_Text: "L\xE5nga ord"
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
