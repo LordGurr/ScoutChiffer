@@ -1,7 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class UpdateText : MonoBehaviour
 {
@@ -77,6 +76,146 @@ public class UpdateText : MonoBehaviour
         'å',//å
         'ä',//ä
         'ö',//ö
+    };
+
+    private string[] futharkRunes = new string[]
+    {
+        "ᚹ",//th
+        "ᛅ",//a
+        "ᛒ",//b
+        "ᛋ",//c
+        "ᛏ",//d
+        "ᛁ",//e
+        "ᚠ",//f
+        "ᛋ",//g
+        "ᛄ",//h
+        "ᛁ",//i
+        "ᛁ",//j
+        "ᛋ",//k
+        "ᛚ",//l
+        "ᛉ",//m
+        "ᚾ",//n
+        "ᚢ",//o
+        "ᛒ",//p
+        "ᚱ",//r
+        "ᛋ",//s
+        "ᛏ",//t
+        "ᚢ",//u
+        "ᚢ",//v
+        "ᛣ",//y
+        "ᛅᛅ",//å
+        "ᚫ",//ä
+        "ᚢ",//ö
+    };
+
+    private string[] futharkAlphabet = new string[]
+    {
+        "th",//th
+        "a",//a
+        "b",//b
+        "c",//c
+        "d",//d
+        "e",//e
+        "f",//f
+        "g",//g
+        "h",//h
+        "i",//i
+        "j",//j
+        "k",//k
+        "l",//l
+        "m",//m
+        "n",//n
+        "o",//o
+        "p",//p
+        "r",//r
+        "s",//s
+        "t",//t
+        "u",//u
+        "v",//v
+        "y",//y
+        "å",//å
+        "ä",//ä
+        "ö",//ö
+    };
+
+    private string[] oghamAlphabetFörkortning = new string[]
+    {
+        "ae",//ae
+        "ia",//ia
+        "ui",//ui
+        "oi",//oi
+        "ea",//ea
+        "ng",//ng
+        " ",//space
+    };
+
+    private string[] oghamRunesFörkortning = new string[]
+    {
+        "ᚙ",//ae
+        "ᚘ",//ia
+        "ᚗ",//ui
+        "ᚖ",//oi
+        "ᚕ",//ea
+        "ᚍ",//ng
+        " ",//space
+    };
+
+    private char[] oghamSpecial = new char[]
+    {
+        '᚛',//start
+        '᚜',//slut
+    };
+
+    private char[] oghamAlphabet = new char[]
+    {
+        'a',//a
+        'b',//b
+        'c',//c
+        'd',//d
+        'e',//e
+        'f',//f
+        'g',//g
+        'h',//h
+        'i',//i
+        'l',//l
+        'm',//m
+        'n',//n
+        'o',//o
+        'p',//p
+        'r',//r
+        's',//s
+        't',//t
+        'u',//u
+        'z',//z
+        'å',//å
+        'ä',//ä
+        'ö',//ö
+    };
+
+    private char[] oghamRunes = new char[]
+    {
+        'ᚐ',//a
+        'ᚁ',//b
+        'ᚈ',//c
+        'ᚇ',//d
+        'ᚓ',//e
+        'ᚃ',//f
+        'ᚌ',//g
+        'ᚆ',//h
+        'ᚔ',//i
+        'ᚂ',//l
+        'ᚋ',//m
+        'ᚅ',//n
+        'ᚑ',//o
+        'ᚚ',//p
+        'ᚏ',//r
+        'ᚄ',//s
+        'ᚈ',//t
+        'ᚒ',//u
+        'ᚎ',//z
+        'ᚘ',//å
+        'ᚙ',//ä
+        'ᚖ',//ö
     };
 
     // Start is called before the first frame update
@@ -158,6 +297,29 @@ public class UpdateText : MonoBehaviour
             }
             myText.text = temp;
         }
+        else if (currentFont == 5)
+        {
+            string temp = input.ToLower();
+            temp = oghamSpecial[0] + temp + oghamSpecial[oghamSpecial.Length - 1];
+            for (int i = 0; i < oghamAlphabetFörkortning.Length; i++)
+            {
+                temp = temp.Replace(oghamAlphabetFörkortning[i], oghamRunesFörkortning[i]);
+            }
+            for (int i = 0; i < oghamAlphabet.Length; i++)
+            {
+                temp = temp.Replace(oghamAlphabet[i], oghamRunes[i]);
+            }
+            myText.text = temp;
+        }
+        else if (currentFont == 6)
+        {
+            string temp = input.ToLower();
+            for (int i = 0; i < futharkAlphabet.Length; i++)
+            {
+                temp = temp.Replace(futharkAlphabet[i], futharkRunes[i]);
+            }
+            myText.text = temp;
+        }
         else
         {
             myText.text = input;
@@ -202,18 +364,30 @@ public class UpdateText : MonoBehaviour
         {
             myText.fontSize = 100;
         }
+        else if (currentFont == 5)
+        {
+            myText.fontSize = 120;
+        }
         else
         {
             myText.fontSize = 80;
         }
-        if(currentFont == 4)
+        if (currentFont == 4 || currentFont == 5 || currentFont == 6)
         {
-            myText.characterSpacing =0;
+            myText.characterSpacing = 0;
         }
         else
         {
-            myText.characterSpacing = -22;
+            myText.characterSpacing = -25;
         }
+        //if (currentFont == 5)
+        //{
+        //    myText.lineSpacing = -25;
+        //}
+        //else
+        //{
+        //    myText.lineSpacing = 0;
+        //}
         TextUpdated(inputText);
     }
 }

@@ -6824,7 +6824,11 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Braille
       m_Image: {fileID: 0}
-    - m_Text: Runes
+    - m_Text: Beorhtric
+      m_Image: {fileID: 0}
+    - m_Text: Ogham
+      m_Image: {fileID: 0}
+    - m_Text: Futhark
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10878,6 +10882,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 241e8354197ba524bad544b7ed89a004, type: 2}
   - {fileID: 11400000, guid: 7e98a8c2051aa1c43a7f9fc60a68412b, type: 2}
   - {fileID: 11400000, guid: 19d6c0d5abc84474c9f65c5d275b62e3, type: 2}
+  - {fileID: 11400000, guid: 511c31dd338d929438249eacf74c1533, type: 2}
+  - {fileID: 11400000, guid: 9db0d772cca812048a79d0a415033890, type: 2}
   - {fileID: 11400000, guid: 511c31dd338d929438249eacf74c1533, type: 2}
 --- !u!114 &939940598
 MonoBehaviour:
@@ -23554,7 +23560,11 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Braille
       m_Image: {fileID: 0}
-    - m_Text: Runes
+    - m_Text: Beorhtric
+      m_Image: {fileID: 0}
+    - m_Text: Ogham
+      m_Image: {fileID: 0}
+    - m_Text: Futhark
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -25367,6 +25377,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7e98a8c2051aa1c43a7f9fc60a68412b, type: 2}
   - {fileID: 11400000, guid: 19d6c0d5abc84474c9f65c5d275b62e3, type: 2}
   - {fileID: 11400000, guid: 511c31dd338d929438249eacf74c1533, type: 2}
+  - {fileID: 11400000, guid: 9db0d772cca812048a79d0a415033890, type: 2}
+  - {fileID: 11400000, guid: 511c31dd338d929438249eacf74c1533, type: 2}
 --- !u!114 &1969367213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25440,7 +25452,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: -22
   m_wordSpacing: 0
-  m_lineSpacing: 1
+  m_lineSpacing: 2
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
