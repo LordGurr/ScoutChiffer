@@ -182,6 +182,7 @@ public class UpdateText : MonoBehaviour
         'n',//n
         'o',//o
         'p',//p
+        'q',//q
         'r',//r
         's',//s
         't',//t
@@ -208,6 +209,7 @@ public class UpdateText : MonoBehaviour
         'ᚅ',//n
         'ᚑ',//o
         'ᚚ',//p
+        'ᚊ',//q
         'ᚏ',//r
         'ᚄ',//s
         'ᚈ',//t
@@ -264,6 +266,7 @@ public class UpdateText : MonoBehaviour
 
     public void TextUpdated(string input)
     {
+        input = input.ToLower();
         inputText = input;
         if (currentFont == 2 && input.Length > 0)
         {
