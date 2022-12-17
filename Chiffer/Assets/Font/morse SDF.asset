@@ -128,7 +128,7 @@ MonoBehaviour:
     m_StyleName: Regular
     m_PointSize: 43
     m_Scale: 1
-    m_LineHeight: 34
+    m_LineHeight: 26.875
     m_AscentLine: 26.875
     m_CapLine: 17
     m_MeanLine: 27
@@ -2686,9 +2686,9 @@ MonoBehaviour:
     packingMode: 0
     atlasWidth: 512
     atlasHeight: 512
-    characterSetSelectionMode: 1
-    characterSequence: 32 - 126, 160 - 255, 8192 - 8303, 8364, 8482, 9633
-    referencedFontAssetGUID: 
+    characterSetSelectionMode: 6
+    characterSequence: 20-7E,C0,C4-C5,D1,D6,E4-E5,F1,F6,2018-2019,201C-201D
+    referencedFontAssetGUID: 7e98a8c2051aa1c43a7f9fc60a68412b
     referencedTextAssetGUID: 
     fontStyle: 0
     fontStyleModifier: 0
@@ -2753,7 +2753,7 @@ Texture2D:
   m_TextureSettings:
     serializedVersion: 2
     m_FilterMode: 1
-    m_Aniso: 1
+    m_Aniso: 4
     m_MipBias: 0
     m_WrapU: 0
     m_WrapV: 0

@@ -287,9 +287,12 @@ public class UpdateText : MonoBehaviour
         {
             myText.text = myText.text.ToLower();
         }
-        if (myFörskjutning != null && currentFont != 0)
+        if (myFörskjutning != null)
         {
             myText.text = myFörskjutning.UpdateFörskjut(input);
+            rect.sizeDelta = new Vector2(rect.sizeDelta.x, myText.preferredHeight);
+            StartCoroutine(UppdateraNästaFrame());
+            return;
         }
         if (currentFont == 4)
         {
