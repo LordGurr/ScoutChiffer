@@ -8,6 +8,10 @@ public class Alfabet : MonoBehaviour
 
     private int activeAlphabet = 0;
 
+    [SerializeField] private GameObject page1Morse;
+
+    [SerializeField] private GameObject page2Morse;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -23,5 +27,11 @@ public class Alfabet : MonoBehaviour
         Alphabets[dropdown].SetActive(true);
         Alphabets[activeAlphabet].SetActive(false);
         activeAlphabet = dropdown;
+    }
+
+    public void NextMorse()
+    {
+        page1Morse.SetActive(!page1Morse.activeSelf);
+        page2Morse.SetActive(!page2Morse.activeSelf);
     }
 }
